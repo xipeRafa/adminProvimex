@@ -29,8 +29,10 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario, po
 
 
 
-    let look = localStorage.look?.slice(48, 68);
+    let look = localStorage.look?.slice(41, 61);
 
+    console.log(look)
+    console.log(localStorage.look?.slice(-20))
 
 
     const [valueState, setValueState] = useState(look || "");
@@ -177,22 +179,20 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario, po
                 >
                     <hr />
 
-                    {valueState.length > 3 && (
+                 {/*   {valueState.length > 3 && (
                         <div>
                             <img style={{width:'180px'}} src={el.imgUrl} alt="img" />
                         </div>
-                    )}
+                    )}*/}
 
                     <div className="texto">
                         {/*<p>{el.id}</p>*/}
-                        <p>{el.name}</p>
-                        <p>{el.description}</p>
-                        <p>{el.category}</p>
-                        {/*<p>Sucursal: {el.sucursal}</p>*/}
-                    {/*    <span>Tallas: </span>
-                        {el.talla.map((el, i)=>(
-                            <span key={i+'ta'}> {el},</span>
-                        ))}*/}
+                        <p>Codigo:{ el.codigo}</p>
+                        <p>Dia Int:{ el.di}</p>
+                        <p>Dia Ext:{ el.de}</p>
+                        <p>Ancho:{ el.ancho}</p>
+                       <span>Descripción:{ el.description}</span>
+                      
 
                         {/*<p>Inventario: {milisegundosComoFecha(el.duration)}</p>*/}
                     </div>
@@ -216,13 +216,13 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario, po
                     })}
 
 
-                    {el?.notaDeVenta?.map((nota, i) => {
+                {/*    {el?.notaDeVenta?.map((nota, i) => {
                         return (
                             <p key={i}>
                                 Nota de Venta {i + 1}: <b>No. {nota}</b>
                             </p>
                         );
-                    })}
+                    })}*/}
 
                     <br />
 
@@ -236,7 +236,7 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario, po
 
                     <button
                         disabled={el?.stockSanCarlos < 1 || el?.stockHermosillo < 1 ? true : false}
-                        style={{ backgroundColor: "orange" }}
+                        style={{ backgroundColor: "yellow" }}
                         onClick={() => {
 
                             // if(tallaState.length <= 0){
@@ -244,18 +244,18 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario, po
                             //     return
                             // }
 
-                            if(noteState.length <= 0){
-                                alert('Falta el Numero Nota de Venta')
-                                return
-                            }
+                            // if(noteState.length <= 0){
+                            //     alert('Falta el Numero Nota de Venta')
+                            //     return
+                            // }
 
-                            if (window.confirm(`Marcar ${el.name} como Pagado?`)) {
+                            if (window.confirm(`Marcar ${el.codigo} como Pagado?`)) {
                                 handleSales(el.id, el);
                             }
 
                         }}
                     >
-                        {el?.stockSanCarlos < 1 || el?.stockHermosillo < 1 ? "Producto Agotado" : 'Marcar como Pagado'} 
+                        {/*{el?.stockSanCarlos < 1 || el?.stockHermosillo < 1 ? "Producto Agotado" : 'Marcar como Pagado'} */}
                     </button>
                     <hr />
                 </div>
