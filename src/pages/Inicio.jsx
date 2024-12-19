@@ -29,10 +29,11 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario, po
 
 
 
-    let look = localStorage.look?.slice(41, 61);
+    let look = localStorage.look?.slice(42, 62);
 
-    console.log(look)
-    console.log(localStorage.look?.slice(-20))
+    console.log('34',look)
+    console.log('35',localStorage.look?.slice(-19))
+    console.log('36',localStorage.look?.slice(-21))
 
 
     const [valueState, setValueState] = useState(look || "");
