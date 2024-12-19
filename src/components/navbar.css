@@ -1,0 +1,90 @@
+
+
+.navBar{
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+@media (max-width: 680px) {
+    .navBar{
+        margin-bottom: -80px;
+    }
+}
+
+
+
+/* azul */
+.menu { 
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 22px;
+    text-transform: uppercase;
+    padding: 10px;
+    background-color: rgba(133, 67, 100, .9);
+}
+
+/* gris */
+.hamburger {
+    display: flex;
+    justify-content: space-between;
+    height: 35px;
+    padding: 5px 10px;
+    margin: 0 auto;
+    background-color: rgba(133, 67, 100, .5);
+    align-items: center;
+    cursor: pointer;
+}
+
+
+
+.active {
+    color: rgba(149, 17, 17, 0.47);
+}
+
+.menu-bar {
+    width: 26px;
+    cursor: pointer;
+}
+
+.uno,
+.dos,
+.tres {
+    background: #ffffff;
+    height: 4px;
+}
+
+.dos {
+    margin: 4px 0;
+}
+
+@media (max-width: 1000px) {
+    .menu {
+        transform: translate(-600%);
+    }
+}
+
+
+@media (min-width: 1000px) {
+    .hamburger {
+        display: none;
+    }
+}
+
+
+.display {
+    flex-direction: column;
+    transform: translate(0);
+    transition: .4s;
+}
+
+.navBar a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    margin: 10px;
+    padding: 6px 0;
+ }
+
+.menuIcons{
+    color: white;
+    user-select: none;
+}
