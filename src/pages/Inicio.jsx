@@ -124,11 +124,12 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario, po
 
         let ventas = {
             pid : id,
-            name : el.name,
+            codigo : el.codigo,
             lastSale : dueDate,
-            price : el.price,
-            efectivo : efectivoState,
-            vendedor:localStorage.userEmailLS
+            di : el.di,
+            de:el.de
+            ancho:el.ancho
+            descripcion:el.description
         }
 
 
@@ -137,9 +138,9 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario, po
 
         setTimeout(() => {
             setGetArr(!getArr);
-            setTallaState('')
-            setNoteState('')
-            setEfectivoState('')
+            // setTallaState('')
+            // setNoteState('')
+            // setEfectivoState('')
         }, 500);
 
     };
@@ -253,7 +254,7 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario, po
                         }}
                     >
                         {/*{el?.stockSanCarlos < 1 || el?.stockHermosillo < 1 ? "Producto Agotado" : 'Marcar como Pagado'} */}
-                            'Marcar Como Pagado'
+                            Marcar Como Pagado
                     </button>
                     <hr />
                 </div>
