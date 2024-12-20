@@ -104,8 +104,9 @@ export default function Inventario({ arr, setGetArr, getArr }) {
 
                         {el?.historiSales?.map((fecha, i) => {
                                 return (
-                                        <p key={i} style={{ backgroundColor: "orange" }}>
+                                        <p key={i} style={{ backgroundColor: "yellow" }}>
                                                 Venta {i + 1}.- {milisegundosComoFecha(fecha)}
+
                                         </p>
                                 );
                         })}
