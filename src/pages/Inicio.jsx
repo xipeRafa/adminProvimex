@@ -127,8 +127,8 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario, po
             codigo : el.codigo,
             lastSale : dueDate,
             di : el.di,
-            de:el.de
-            ancho:el.ancho
+            de:el.de,
+            ancho:el.ancho,
             descripcion:el.description
         }
 
