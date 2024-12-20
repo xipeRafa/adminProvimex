@@ -69,13 +69,13 @@ export default function Inventario({ arr, setGetArr, getArr }) {
     return (
         <>
 
-         <div className='filters'>
+      {/*   <div className='filters'>
 
                 <input type='search' value={valueState} placeholder='Buscar' onChange={handleSearch} />
 
      
 
-            </div>
+            </div>*/}
 
 
             <hr />

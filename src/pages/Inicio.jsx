@@ -31,9 +31,6 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario, po
 
     let look = localStorage.look?.slice(42, 62);
 
-    console.log('34',look)
-    console.log('35',localStorage.look?.slice(-19))
-    console.log('36',localStorage.look?.slice(-21))
 
 
     const [valueState, setValueState] = useState(look || "");
@@ -188,11 +185,11 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario, po
 
                     <div className="texto">
                         {/*<p>{el.id}</p>*/}
-                        <p>Codigo:{ el.codigo}</p>
-                        <p>Dia Int:{ el.di}</p>
-                        <p>Dia Ext:{ el.de}</p>
-                        <p>Ancho:{ el.ancho}</p>
-                       <span>Descripción:{ el.description}</span>
+                        <p>Codigo: { el.codigo}</p>
+                        <p>Dia Int: { el.di}</p>
+                        <p>Dia Ext: { el.de}</p>
+                        <p>Ancho: { el.ancho}</p>
+                        <span>Descripción: { el.description}</span>
                       
 
                         {/*<p>Inventario: {milisegundosComoFecha(el.duration)}</p>*/}
@@ -205,7 +202,6 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario, po
                         </p>
 */}
 
-                        <b>Precio: $ {el.price}</b>
                     </div>
 
                     {el?.historiSales?.map((fecha, i) => {
@@ -229,8 +225,8 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario, po
 
                     {/*<input type="text" placeholder='Talla Escogida' value={tallaState} onChange={(e)=>handleTallaState(e)}/><br />*/}
 
-                    <input className='mb-3 mt-1' type="number" min='0' placeholder='# Nota de Venta' value={noteState} onChange={(e)=>setNoteState(e.target.value)}/><br />
-                    <input className='mb-3' type="number" min='0' placeholder='$ Efectivo' value={efectivoState} onChange={(e)=>setEfectivoState(e.target.value)}/>
+                    {/*<input className='mb-3 mt-1' type="number" min='0' placeholder='# Nota de Venta' value={noteState} onChange={(e)=>setNoteState(e.target.value)}/><br />*/}
+                    {/*<input className='mb-3' type="number" min='0' placeholder='$ Efectivo' value={efectivoState} onChange={(e)=>setEfectivoState(e.target.value)}/>*/}
 
                     <br />
 
@@ -257,6 +253,7 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario, po
                         }}
                     >
                         {/*{el?.stockSanCarlos < 1 || el?.stockHermosillo < 1 ? "Producto Agotado" : 'Marcar como Pagado'} */}
+                            'Marcar Como Pagado'
                     </button>
                     <hr />
                 </div>
