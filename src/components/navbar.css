@@ -20,7 +20,7 @@
     font-size: 22px;
     text-transform: uppercase;
     padding: 10px;
-    background-color: rgba(133, 67, 100, .9);
+    background-color: rgba(133, 67, 100, 1);
 }
 
 /* gris */
@@ -30,7 +30,7 @@
     height: 35px;
     padding: 5px 10px;
     margin: 0 auto;
-    background-color: rgba(133, 67, 100, .5);
+    background-color: rgba(133, 67, 100, .9);
     align-items: center;
     cursor: pointer;
 }
