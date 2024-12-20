@@ -130,7 +130,7 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario, po
             de : el.de,
             ancho : el.ancho,
             descripcion : el.description,
-            vendedor : localStorage.userEmailLS
+            // vendedor : localStorage.userEmailLS
         }
 
 
