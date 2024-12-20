@@ -75,33 +75,33 @@ export default function Entregados({ arrVentas, setGetArrVentas, getArrVentas}) 
 
         let arrVentasFiltered = arrVentas.filter(el => (el.lastSale >= hoy) && (el.lastSale <= hoy+86400000))
 
-        let totalVentas = []
+        // let totalVentas = []
 
-        arrVentasFiltered.map(el=>{
-                totalVentas.push(el.price)
-        })
+        // arrVentasFiltered.map(el=>{
+        //         totalVentas.push(el.price)
+        // })
 
-        let total = totalVentas.reduce(( accumulator, currentValue ) => accumulator + currentValue, 0)
-
-
+        // let total = totalVentas.reduce(( accumulator, currentValue ) => accumulator + currentValue, 0)
 
 
 
-        const[sucursalState, setSucursalState]=useState('')
 
 
-        // let sucursales = arrVentasFiltered.filter(el => el.sucursal === sucursalState )
-        let sucursales = arrVentasFiltered.filter(el => el.sucursal === 'Hermosillo' )
+        // const[sucursalState, setSucursalState]=useState('')
 
 
-        let totalVentasBySucursal = []
-
-        arrVentasFiltered.filter(el => el.sucursal === sucursalState ).map(el=>{
-                totalVentasBySucursal.push(el.price)
-        })
+        // // let sucursales = arrVentasFiltered.filter(el => el.sucursal === sucursalState )
+        // let sucursales = arrVentasFiltered.filter(el => el.sucursal === 'Hermosillo' )
 
 
-        let totalVentasBySucursalRender = totalVentasBySucursal.reduce(( accumulator, currentValue ) => accumulator + currentValue, 0)
+        // let totalVentasBySucursal = []
+
+        // arrVentasFiltered.filter(el => el.sucursal === sucursalState ).map(el=>{
+        //         totalVentasBySucursal.push(el.price)
+        // })
+
+
+        // let totalVentasBySucursalRender = totalVentasBySucursal.reduce(( accumulator, currentValue ) => accumulator + currentValue, 0)
 
 
     return (
@@ -132,9 +132,9 @@ export default function Entregados({ arrVentas, setGetArrVentas, getArrVentas}) 
                 }
             </p>
 
-            <p className={arrVentasFiltered.length <= 0 ? 'd-none' : 'total'}>
+         {/*   <p className={arrVentasFiltered.length <= 0 ? 'd-none' : 'total'}>
                     Total en Ventas: $ <span className='total'>{total}</span>
-            </p>
+            </p>*/}
 
         {/*    <div className={arrVentasFiltered.length <= 0 ? 'd-none' : 'bg-gray'}>
 
@@ -153,19 +153,19 @@ export default function Entregados({ arrVentas, setGetArrVentas, getArrVentas}) 
         
 
    
-            {sucursales.map((el, i) => {
-                console.log(el)
+            {arrVentasFiltered.map((el, i) => {
                 return <div key={i} className="it">
                     <hr />
 
                     <div className="tex">
-                        {/*<h3>Sucursal {el.sucursal}</h3>*/}
-                        <h3>Producto: {el.name}</h3> 
-                        <p>Vendedor: {el.vendedor}</p>
                         <p>Fecha de Venta: {milisegundosComoFecha(el.lastSale)}</p>
-                        <p>ID: {el.pid}</p>
-                        <b>Precio: $ { el.price}</b>
-                        <p>Efectivo : { el?.efectivo}</p>
+                        <h3>Código: {el.codigo}</h3> 
+                        <p>Dia Ext: {el.de}</p>
+                        <p>Dia Int: {el.di}</p>
+                       
+                        {/*<p>ID: {el.pid}</p>*/}
+                        <b>Ancho:  { el.ancho}</b>
+                        <p>Descripción : { el.descripcion}</p>
 
                     </div>
 
