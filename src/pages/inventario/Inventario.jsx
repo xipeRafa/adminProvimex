@@ -99,6 +99,7 @@ export default function Inventario({ arr, setGetArr, getArr }) {
                         <p>Dia Int: {el.di}</p>
                         <p>Dia Ext: {el.de}</p>
                         <p>Ancho: {el.ancho}</p>
+                        <p>Precio: {el.precio}</p>
                         <p>Descripción: {el.description}</p>
 
 
