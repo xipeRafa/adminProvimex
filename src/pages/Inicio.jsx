@@ -191,6 +191,7 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario, po
                         <p>Dia Int: { el.di}</p>
                         <p>Dia Ext: { el.de}</p>
                         <p>Ancho: { el.ancho}</p>
+                        <p>Ancho: { el.precio}</p>
                         <span>Descripción: { el.description}</span>
                       
 
