@@ -160,13 +160,18 @@ export default function Entregados({ arrVentas, setGetArrVentas, getArrVentas}) 
                     <div className="tex">
                         <p>Fecha de Venta: {milisegundosComoFecha(el.lastSale)}</p>
                         <h3>Código: {el.codigo}</h3> 
-                        <p>Vendedor: {el.vendedor}</p>
+                        {/*<p>Vendedor: {el.vendedor}</p>*/}
                         <p>Dia Ext: {el.de}</p>
                         <p>Dia Int: {el.di}</p>
                        
                         {/*<p>ID: {el.pid}</p>*/}
                         <p>Ancho:  { el.ancho}</p>
                         <p>Descripción : { el.descripcion}</p>
+                        <p>Stock Comprado : <b>{el.stockComprado} Piezas</b></p>
+                        <p>Precio: <b>$ { el.precio}</b></p>
+
+                        
+                        <p>Total: <b>$ { Number(el.stockComprado) * Number(el.precio)}</b></p>
 
                     </div>
 

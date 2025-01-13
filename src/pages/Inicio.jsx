@@ -61,15 +61,15 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario, po
 
 
 
-    const[tallaState, setTallaState]=useState('')
+    const[stockCompradoState, setStockCompradoState]=useState(0)
 
-    const handleTallaState=(e)=>{
-        let talla = e.target.value.toLowerCase()
 
-        if(e.target.value.length>4){
+    const handleStockComprado=(e)=>{
+
+        if(e.target.value < 0){
             return
         }
-        setTallaState(talla)
+        setStockCompradoState(e.target.value)
     }
 
 
@@ -87,7 +87,7 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario, po
 
 
         el.takenByCustomer = true;
-        //el.tallaComprada = tallaState
+        //el.stockComprado = stockCompradoState
         // el.talla = arrTalla
 
         if (el.historiSales === undefined) {
@@ -95,29 +95,19 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario, po
                 el.historiSales = [];
                 el.historiSales.push(dueDate);
 
-                el.notaDeVenta = []
-                el.notaDeVenta.push(noteState)
+                el.stockComprado = []
+                el.stockComprado.push(stockCompradoState)
 
         } else {
 
                 el.historiSales.push(dueDate);
-                el.notaDeVenta.push(efectivoState)
+                el.stockComprado.push(stockCompradoState)
 
         }
 
 
 
-
-        // if (el?.stockHermosillo === undefined) {
-
-        //         el.stockSanCarlos = el?.stockSanCarlos - 1;
-        //         UpdateByIdInventario(el.id, el);
-
-        // } else {
-
-        //         el.stockHermosillo = el?.stockHermosillo - 1;
-        //         UpdateByIdInventario(el.id, el);
-        // }
+        el.stock = el.stock - stockCompradoState
 
         UpdateByIdInventario(el.id, el);
 
@@ -129,6 +119,8 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario, po
             di : el.di,
             de : el.de,
             ancho : el.ancho,
+            precio : el.precio,
+            stockComprado : stockCompradoState,
             descripcion : el.description,
             // vendedor : localStorage.userEmailLS
         }
@@ -139,10 +131,9 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario, po
 
         setTimeout(() => {
             setGetArr(!getArr);
-            // setTallaState('')
-            // setNoteState('')
+            setStockCompradoState('')
             // setEfectivoState('')
-        }, 500);
+        }, 2000);
 
     };
 
@@ -161,7 +152,7 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario, po
     return (
         <>
             <input
-                style={{display:'none'}}
+                // style={{display:'none'}}
                 type="search"
                 className="searchInput"
                 value={valueState}
@@ -191,6 +182,7 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario, po
                         <p>Dia Int: { el.di}</p>
                         <p>Dia Ext: { el.de}</p>
                         <p>Ancho: { el.ancho}</p>
+                        <p>Stock: { el.stock}</p>
                         <p>Precio: $ { el.precio}</p>
                         <span>Descripción: { el.description}</span>
                       
@@ -216,17 +208,17 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario, po
                     })}
 
 
-                {/*    {el?.notaDeVenta?.map((nota, i) => {
+                    {el?.stockComprado?.map((sc, i) => {
                         return (
                             <p key={i}>
-                                Nota de Venta {i + 1}: <b>No. {nota}</b>
+                                Stock Comprado en Venta #{i + 1}: <b> {sc} Piezas</b>
                             </p>
                         );
-                    })}*/}
+                    })}
 
                     <br />
 
-                    {/*<input type="text" placeholder='Talla Escogida' value={tallaState} onChange={(e)=>handleTallaState(e)}/><br />*/}
+                    <input type="number" placeholder='Cantidad Comprado' value={stockCompradoState} onChange={(e)=>handleStockComprado(e)}/><br />
 
                     {/*<input className='mb-3 mt-1' type="number" min='0' placeholder='# Nota de Venta' value={noteState} onChange={(e)=>setNoteState(e.target.value)}/><br />*/}
                     {/*<input className='mb-3' type="number" min='0' placeholder='$ Efectivo' value={efectivoState} onChange={(e)=>setEfectivoState(e.target.value)}/>*/}
@@ -235,8 +227,7 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario, po
 
 
                     <button
-                        disabled={el?.stockSanCarlos < 1 || el?.stockHermosillo < 1 ? true : false}
-                        style={{ backgroundColor: "yellow" }}
+                        disabled={el?.stock < 1 ? true : false}
                         onClick={() => {
 
                             // if(tallaState.length <= 0){
@@ -244,10 +235,10 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario, po
                             //     return
                             // }
 
-                            // if(noteState.length <= 0){
-                            //     alert('Falta el Numero Nota de Venta')
-                            //     return
-                            // }
+                            if(stockCompradoState <= 0){
+                                alert('Falta Cantidad de Piezas Compradas')
+                                return
+                            }
 
                             if (window.confirm(`Marcar ${el.codigo} como Pagado?`)) {
                                 handleSales(el.id, el);
@@ -255,8 +246,8 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario, po
 
                         }}
                     >
-                        {/*{el?.stockSanCarlos < 1 || el?.stockHermosillo < 1 ? "Producto Agotado" : 'Marcar como Pagado'} */}
-                            Marcar Como Pagado
+                        {el?.stock < 1 ? "Producto Agotado" : 'Marcar como Pagado'} 
+
                     </button>
                     <hr />
                 </div>
