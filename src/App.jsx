@@ -46,6 +46,10 @@ export default function App() {
              console.error(err)
         })
 
+
+        //localStorage.arrProvimex = JSON.stringify()
+        //aqui va array ya listo
+
     }, [getArr])  
 
 
@@ -122,6 +126,52 @@ export default function App() {
     }
 
 
+// let newArrProvimex = []
+
+// if(localStorage.arrProvimex!==undefined){
+// JSON.parse(localStorage.arrProvimex).map(el=>{
+
+//     let obj1 = {}
+//     let obj2 = {}
+
+//     obj1.codigo = el.codigo1
+//     obj1.stock = el.stock1
+//     obj1.precio = el.precio1
+
+//     obj1.di = el.di
+//     obj1.de = el.de
+//     obj1.ancho = el.ancho
+//     obj1.description = el.description
+
+
+
+
+//     obj2.codigo = el.codigo2
+//     obj2.stock = el.stock2
+//     obj2.precio = el.precio2
+
+//     obj2.di = el.di
+//     obj2.de = el.de
+//     obj2.ancho = el.ancho
+//     obj2.description = el.description
+
+//    newArrProvimex.push(obj1)
+//    newArrProvimex.push(obj2)
+
+// })
+// }
+
+// console.log(newArrProvimex)
+
+
+// const rta = newArrProvimex.sort(function(a, b){
+//     if(a.name < b.name) { return -1; }
+//     if(a.name > b.name) { return 1; }
+//     return 0;
+// })
+
+
+// localStorage.arrProvimex2 = JSON.stringify(rta)
 
 
   return (

@@ -6,7 +6,7 @@ import './inventario.css'
 
 export default function Inventario({ arr, setGetArr, getArr }) {
 
-
+console.log(arr)
     let arr2 = []
 
 
@@ -17,7 +17,7 @@ export default function Inventario({ arr, setGetArr, getArr }) {
 
     const formateador = new Intl.DateTimeFormat("es-MX", { dateStyle: 'long', timeStyle: 'short' });
   
-    const milisegundosComoFecha = (milisegundos) => {
+    const milisegundosComoFecha = (milisegundos=0) => {
           return formateador.format(new Date(milisegundos));
     }; 
 
@@ -49,16 +49,11 @@ export default function Inventario({ arr, setGetArr, getArr }) {
 
 
 
-    if(valueState.length > 3){
-        arr2 = arr2.filter(el => el.id === valueState.trim())
-    }else{
+    // if(valueState.length > 3){
+    //     arr2 = arr2.filter(el => el.id === valueState.trim())
+    // }else{
 
-        if(togleHMState !== ''){
-            arr2 = arr2.filter(el => el.para === togleHMState).filter(el => el.sucursal === togleSucursal)
-        }else{
-            arr2 = arr2
-        } 
-    }   
+    // }   
 
     
     let ProdByPage = 6;
@@ -83,8 +78,9 @@ export default function Inventario({ arr, setGetArr, getArr }) {
      
 
 
-            {arr.sort((a, b) => b.duration - a.duration).slice(sliceState ,sliceState + ProdByPage).map((el, i) => (
-                <div key={i} className="item" onDoubleClick={()=>{setValueState(el.id), resetFinder}}>
+            {arr.slice(sliceState ,sliceState + ProdByPage).map((el, i) => (
+                <div key={i} className="item" > 
+                {/* onDoubleClick={()=>{setValueState(el.id), resetFinder}} */}
                     <hr />
 
                 {/*    {valueState.length > 3 &&
@@ -93,7 +89,7 @@ export default function Inventario({ arr, setGetArr, getArr }) {
                     </div>}*/}
 
                     <div className="texto">
-                        <p>Fecha: {milisegundosComoFecha(el.duration)}</p>
+                        {/*<p>Fecha: {milisegundosComoFecha(el.duration)}</p>*/}
                         <h3>Código: {el.codigo}</h3>
                         {/*<p>{el.id}</p>*/}
                         <p>Dia Int: {el.di}</p>
@@ -108,7 +104,7 @@ export default function Inventario({ arr, setGetArr, getArr }) {
                         {el?.historiSales?.map((fecha, i) => {
                                 return (
                                         <p key={i} style={{ backgroundColor: "yellow" }}>
-                                                Venta {i + 1}.- {milisegundosComoFecha(fecha)}
+                                                {/*Venta {i + 1}.- {milisegundosComoFecha(fecha)}*/}
 
                                         </p>
                                 );
@@ -140,11 +136,11 @@ export default function Inventario({ arr, setGetArr, getArr }) {
             <button className={sliceState === ProdByPage || sliceState === 0 ? 'd-none' : ''} onClick={()=>{ setSliceState(0), window.scrollTo(0,0) }}>０</button>   
 
             <button onClick={()=>{ 
-                                    if(arr2.length > sliceState + ProdByPage){
+                                    if(arr.length > sliceState + ProdByPage){
                                         setSliceState(sliceState + ProdByPage) 
                                         window.scrollTo(0,0) 
                                     }else{
-                                        setSliceAlert(' No hay mas Modelos en esta Lista')
+                                        setSliceAlert(' No Hay Mas Productos en esta Lista')
                                         setTimeout(()=>{
                                             setSliceAlert('')
                                         },2500)
@@ -158,8 +154,8 @@ export default function Inventario({ arr, setGetArr, getArr }) {
 
 
 
-            <p>De: {sliceState + 1} a: {arr2.length > sliceState + ProdByPage ? sliceState + ProdByPage : arr2.length}</p>
-            <p>Paginas de {ProdByPage} Modelos. c/u </p>
+            <p>De: {sliceState + 1} a: {arr.length > sliceState + ProdByPage ? sliceState + ProdByPage : arr.length}</p>
+            <p>Paginas de {ProdByPage} Productos. c/u. Total: {arr.length}</p>
    </div>
    
 
