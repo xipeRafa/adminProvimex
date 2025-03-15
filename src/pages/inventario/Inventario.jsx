@@ -6,7 +6,7 @@ import './inventario.css'
 
 export default function Inventario({ arr, setGetArr, getArr }) {
 
-console.log(arr)
+// console.log(arr)
     let arr2 = []
 
 
